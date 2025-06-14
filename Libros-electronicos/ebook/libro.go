@@ -2,7 +2,7 @@ package ebook
 
 import (
 	"errors"
-	"regexp"
+	
 )
 
 // Libro representa un libro electrónico con sus metadatos básicos.
@@ -15,13 +15,11 @@ type Libro struct {
 }
 
 // Constructor para crear un nuevo libro validado
-func NuevoLibro(titulo, autor, isbn, categoria, rutaArchivo string) (*Libro, error) {
-	if titulo == "" || autor == "" || isbn == "" {
+func NuevoLibro(titulo, autor, categoria, rutaArchivo string) (*Libro, error) {
+	if titulo == "" || autor == "" {
 		return nil, errors.New("todos los campos obligatorios deben estar llenos")
 	}
-	if !validarISBN(isbn) {
-		return nil, errors.New("ISBN inválido")
-	}
+	
 	return &Libro{
 		titulo:      titulo,
 		autor:       autor,
@@ -80,7 +78,6 @@ func (l *Libro) SetRutaArchivo(ruta string) {
 
 // ======================= VALIDACIONES =======================
 // validarISBN verifica si el ISBN tiene un formato válido (simplificado)
-func validarISBN(isbn string) bool {
-	re := regexp.MustCompile(`^\d{10}(\d{3})?$`)
-	return re.MatchString(isbn)
-}
+//func validarISBN(isbn string) bool {
+	//re := regexp.MustCompile(`^\d{10}(\d{3})?$`)
+	//return re.MatchString(isbn)

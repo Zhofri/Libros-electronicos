@@ -50,9 +50,10 @@ func registrarUsuario(gestor *user.GestorUsuarios) {
 	nombre := leerEntrada("Nombre")
 	correo := leerEntrada("Correo")
 	contra := leerEntrada("Contraseña")
-	rol := leerEntrada("Rol (admin/usuario)")
+	//rol := leerEntrada("Rol (admin/usuario)")
 
-	u, err := user.NuevoUsuario(nombre, correo, contra, rol)
+	u, err := user.NuevoUsuario(nombre, correo, contra, "user") // Asignamos rol "usuario" por defecto
+	// Si se desea implementar roles, se puede agregar lógica para asignar "admin" o "usuario"		
 	if err != nil {
 		fmt.Println("❌ Error:", err)
 		return
@@ -95,7 +96,7 @@ func menuUsuario(u *user.Usuario, gestorLibros *ebook.GestorLibros) {
 			ruta := leerEntrada("Ruta del archivo")
 
 			
-			libro, err := ebook.NuevoLibro(titulo, autor, categoria, ruta )
+			libro, err := ebook.NuevoLibro(titulo, autor, categoria, ruta)
 			if err != nil {
 				fmt.Println("❌ Error:", err)
 				continue

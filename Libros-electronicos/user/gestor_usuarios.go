@@ -47,7 +47,7 @@ func (g *GestorUsuarios) ListarUsuarios() {
 	}
 	fmt.Println("👥 Usuarios registrados:")
 	for _, u := range g.usuarios {
-		fmt.Printf("- %s (%s)\n", u.GetCorreo(), u.GetRol())
+		fmt.Printf("- %s (%s)\n", u.GetCorreo(), u.GetNombre())
 	}
 }
 

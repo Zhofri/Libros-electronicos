@@ -10,7 +10,7 @@ type Usuario struct {
 	nombre     string
 	correo     string
 	contrasena string
-	rol        string // "admin" o "usuario"
+	//rol        string // "admin" o "usuario"
 }
 
 // NuevoUsuario crea un nuevo usuario validando su correo y contraseña
@@ -27,15 +27,15 @@ func NuevoUsuario(nombre, correo, contrasena, rol string) (*Usuario, error) {
 		return nil, errors.New("la contraseña debe tener mínimo 6 caracteres, incluyendo letras y números")
 	}
 
-	if rol != "admin" && rol != "usuario" {
-		return nil, errors.New("rol inválido, debe ser 'admin' o 'usuario'")
-	}
+	//if rol != "admin" && rol != "usuario" {
+		//return nil, errors.New("rol inválido, debe ser 'admin' o 'usuario'")
+	//}
 
 	return &Usuario{
 		nombre:     nombre,
 		correo:     correo,
 		contrasena: contrasena,
-		rol:        rol,
+		//rol:        rol,
 	}, nil
 }
 
@@ -49,9 +49,9 @@ func (u *Usuario) GetCorreo() string {
 	return u.correo
 }
 
-func (u *Usuario) GetRol() string {
-	return u.rol
-}
+//func (u *Usuario) GetRol() string {
+	//return u.rol
+//}
 
 // ======================= MÉTODOS SET =======================
 
@@ -75,13 +75,13 @@ func (u *Usuario) SetContrasena(contra string) error {
 	return nil
 }
 
-func (u *Usuario) SetRol(rol string) error {
-	if rol != "admin" && rol != "usuario" {
-		return errors.New("rol no permitido")
-	}
-	u.rol = rol
-	return nil
-}
+//func (u *Usuario) SetRol(rol string) error {
+	//if rol != "admin" && rol != "usuario" {
+		//return errors.New("rol no permitido")
+	//}
+	//u.rol = rol
+	//return nil
+//}
 
 // ======================= VALIDACIONES =======================
 
