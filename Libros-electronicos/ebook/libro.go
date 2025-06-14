@@ -9,7 +9,7 @@ import (
 type Libro struct {
 	titulo     string
 	autor      string
-	isbn       string
+	
 	categoria  string
 	rutaArchivo string
 }
@@ -25,7 +25,7 @@ func NuevoLibro(titulo, autor, isbn, categoria, rutaArchivo string) (*Libro, err
 	return &Libro{
 		titulo:      titulo,
 		autor:       autor,
-		isbn:        isbn,
+		//
 		categoria:   categoria,
 		rutaArchivo: rutaArchivo,
 	}, nil
@@ -41,9 +41,7 @@ func (l *Libro) GetAutor() string {
 	return l.autor
 }
 
-func (l *Libro) GetISBN() string {
-	return l.isbn
-}
+
 
 func (l *Libro) GetCategoria() string {
 	return l.categoria
@@ -63,13 +61,13 @@ func (l *Libro) SetAutor(autor string) {
 	l.autor = autor
 }
 
-func (l *Libro) SetISBN(isbn string) error {
-	if !validarISBN(isbn) {
-		return errors.New("ISBN inválido")
-	}
-	l.isbn = isbn
-	return nil
-}
+//func (l *Libro) SetISBN(isbn string) error {
+	//if !validarISBN(isbn) {
+		//return errors.New("ISBN inválido")
+	//}
+	//l.isbn = isbn
+	//return nil
+//}
 
 func (l *Libro) SetCategoria(categoria string) {
 	l.categoria = categoria
@@ -77,4 +75,12 @@ func (l *Libro) SetCategoria(categoria string) {
 
 func (l *Libro) SetRutaArchivo(ruta string) {
 	l.rutaArchivo = ruta
+}
+
+
+// ======================= VALIDACIONES =======================
+// validarISBN verifica si el ISBN tiene un formato válido (simplificado)
+func validarISBN(isbn string) bool {
+	re := regexp.MustCompile(`^\d{10}(\d{3})?$`)
+	return re.MatchString(isbn)
 }

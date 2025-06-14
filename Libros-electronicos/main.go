@@ -90,11 +90,12 @@ func menuUsuario(u *user.Usuario, gestorLibros *ebook.GestorLibros) {
 		case "1":
 			titulo := leerEntrada("Título")
 			autor := leerEntrada("Autor")
-			isbn := leerEntrada("ISBN")
+			//isbn := leerEntrada("ISBN")
 			categoria := leerEntrada("Categoría")
 			ruta := leerEntrada("Ruta del archivo")
 
-			libro, err := ebook.NuevoLibro(titulo, autor, isbn, categoria, ruta)
+			
+			libro, err := ebook.NuevoLibro(titulo, autor, categoria, ruta )
 			if err != nil {
 				fmt.Println("❌ Error:", err)
 				continue

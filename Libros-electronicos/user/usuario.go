@@ -91,6 +91,22 @@ func validarCorreo(correo string) bool {
 }
 
 func validarContrasena(contra string) bool {
-	re := regexp.MustCompile(`^(?=.*[a-zA-Z])(?=.*\d).{6,}$`)
-	return re.MatchString(contra)
+	if len(contra) < 6 {
+		return false
+	}
+
+	tieneLetra := false
+	tieneNumero := false
+
+	for _, c := range contra {
+		if c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z' {
+			tieneLetra = true
+		}
+		if c >= '0' && c <= '9' {
+			tieneNumero = true
+		}
+	}
+
+	return tieneLetra && tieneNumero
 }
+
