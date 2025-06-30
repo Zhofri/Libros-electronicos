@@ -331,7 +331,7 @@ El sistema maneja tanto compras permanentes como préstamos temporales
 
 🤝 Contribución
 
-Este es un proyecto educativo individual desarrollado como parte del curso de programación web.
+Este es un proyecto educativo individual desarrollado como parte del curso de Programacion Orientada A Objetos.
 
 📄 Licencia
 
