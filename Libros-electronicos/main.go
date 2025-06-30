@@ -1,7 +1,9 @@
 /*
-Autor:
-Tarea:
-Fecha:
+Autor:Zhofri Guaman		
+Tarea:Programacion orientada a objetos
+Proyecto: Sistema de gestion de libros electronicos
+Fecha inicio: 13:45PM - 24/06/2024
+Fecha fin: 10:04AM  - 29/06/2024
 */
 package main
 
